@@ -1,7 +1,6 @@
 package com.andrelake.controllers;
 
-import com.andrelake.controllers.dto.CreateUserRequest;
-import com.andrelake.controllers.dto.UpdateUserRequest;
+import com.andrelake.controllers.dto.UserRequest;
 import com.andrelake.models.User;
 import io.quarkus.hibernate.orm.panache.PanacheQuery;
 
@@ -23,7 +22,7 @@ public class UserResource {
 
     @POST
     @Transactional
-    public Response createUser(CreateUserRequest request) {
+    public Response createUser(UserRequest request) {
         User user = new User();
         user.setName(request.getName());
         user.setAge(request.getAge());
@@ -50,7 +49,7 @@ public class UserResource {
     @PUT
     @Path("/{id}")
     @Transactional
-    public Response updateUser(@PathParam("id") Long id, UpdateUserRequest request) {
+    public Response updateUser(@PathParam("id") Long id, UserRequest request) {
         User user = User.findById(id);
 
         if(user != null) {

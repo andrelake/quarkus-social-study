@@ -1,6 +1,6 @@
 package com.andrelake.controllers.dto;
 
-public class CreateUserRequest {
+public class UserRequest {
     private String name;
     private Integer age;
 
